@@ -31,7 +31,7 @@
                 <div class="item-wrapper">
                     <div class="img-wrapper">
                         <a href="{{route('cart.addItem',$shirt->id)}}" class="button expanded add-to-cart">
-                            Agregar a carrito
+                            Agregar a carro
                         </a>
                         <a href="#">
                             <img src="{{url('images',$shirt->image)}}"/>
@@ -44,6 +44,11 @@
                     </a>
                     <h5>
                         ${{$shirt->price}}
+
+                    </h5>
+
+                    <h5>
+                        Cantidad disponible:{{$shirt->cantidad}}
 
                     </h5>
                     <p>

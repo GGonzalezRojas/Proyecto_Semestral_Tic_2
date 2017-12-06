@@ -29,23 +29,32 @@
         <ol class="menu">
             <li>
                 <a href="{{route('shirts')}}">
-                    PRODUCTOS
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    CONTACTO
+                    <i class="fa fa-shopping-bag fa-2x" aria-hidden="true">   
+                    </i>
+                    Catálogo
                 </a>
             </li>
             <li>
                 <a href="{{route('cart.index')}}">
                     <i class="fa fa-shopping-cart fa-2x" aria-hidden="true">
                     </i>
-                    CARRITO
+                    Carrito
                     <span class="alert badge">
                                {{Cart::count()}}
                             </span>
                 </a>
+            </li>
+            <li>
+                @if (Auth::check())
+                    <a href="/admin">
+                    <i class="fa fa-user fa-2x" aria-hidden="true"></i>
+                        {{Auth::user()->name}}
+                    </a>  
+                @else
+                    <a href="/login">
+                        Iniciar Sesión
+                    </a>
+                @endif
             </li>
         </ol>
     </div>
@@ -63,10 +72,11 @@
                     Jose Silva    
             </p>
         </div>
-        <div class="small-12 medium-4 large-4 columns">
+        <br/>
+        <div class="small-12 medium-10 large-4 columns">
             <br/>
-            <br/>
-            <i class="fa fa-bug" aria-hidden="true"></i>
+            
+            <i class="fa fa-bug fa-3x" aria-hidden="true"></i>
             <p>La aplicación se encuentra actualmente en desarrollo, esta es una vista preliminar del software y no representa el producto final.<br/>
                Producto desarrollado en Laravel 5.5 
 

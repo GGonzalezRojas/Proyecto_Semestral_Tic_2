@@ -19,7 +19,7 @@
         <div class="small-6 columns">
             <div class="item-wrapper">
                 <h3 class="subheader">
-                    <span class="price-tag">${{$shirt->price}}</span> {{$shirt->name}}
+                    <span class="price-tag">${{$shirt->price}}</span> {{$shirt->name}}</span> {{$shirt->cantidad}}
                 </h3>
                 <div class="row">
                     <div class="large-12 columns">
@@ -27,24 +27,28 @@
                             Select Size
                             <select>
                                 <option value="small">
-                                    Small
+                                    Pequeña
                                 </option>
                                 <option value="medium">
-                                    Medium
+                                    Mediana
                                 </option>
                                 <option value="large">
-                                    Large
+                                    Grande
+                                </option>
+                                <option value="large">
+                                    Extra Grande
                                 </option>
 
                             </select>
                         </label>
-                        <a href="#" class="button  expanded">Add to Cart</a>
+                        <a href="#" class="button  expanded">Agregar al Carro</a>
                     </div>
                 </div>
-                <p class="text-left subheader">
+                <!-- products listing -->
+               <!-- <p class="text-left subheader">
                     <small>* Designed by <a href="https://www.youtube.com/webdevmatics">Webdevmatics</a></small>
                 </p>
-
+                -->
             </div>
         </div>
     </div>

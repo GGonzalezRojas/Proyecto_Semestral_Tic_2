@@ -2,69 +2,66 @@
 
 @section('content')
     <div class="row">
-        <h3>Cart Items</h3>
+        <h4></h4>
+        <h3>Carro</h3>
 
-
-        <table class="table table-hover">
-            <thead>
-            <tr>
-                <th>Name</th>
-                <th>Price</th>
-                <th>qty</th>
-                <th>size</th>
-                <th>Action</th>
-            </tr>
-            </thead>
-            <tbody>
-            @foreach($cartItems as $cartItem)
+        @if (Cart::total() != '0' )
+            <table class="table table-hover">
+                <thead>
                 <tr>
-                    <td>{{$cartItem->name}}</td>
-                    <td>{{$cartItem->price}}</td>
-                    <td width="50px">
-                        {!! Form::open(['route' => ['cart.update',$cartItem->rowId], 'method' => 'PUT']) !!}
-                        <input name="qty" type="text" value="{{$cartItem->qty}}">
-
-
-                    </td>
-                    <td>
-                        <div > {!! Form::select('size', ['small'=>'Small','medium'=>'Medium','large'=>'Large'] , $cartItem->options->has('size')?$cartItem->options->size:'' ) !!}
-                           </div>
-
-                    </td>
-
-                    <td>
-                        <input style="float: left"  type="submit" class="button success small" value="Ok">
-                        {!! Form::close() !!}
-
-                        <form action="{{route('cart.destroy',$cartItem->rowId)}}"  method="POST">
-                           {{csrf_field()}}
-                           {{method_field('DELETE')}}
-                           <input class="button small alert" type="submit" value="Delete">
-                         </form>
-                    </td>
+                    <th>Nombre</th>
+                    <th>Precio</th>
+                    <th>Descripción</th>
+                    <th>Cantidad</th>
+                    <th>Opciones</th>
                 </tr>
-            @endforeach
+                </thead>
+                <tbody>
+                @foreach($cartItems as $cartItem)
+                    
+                        <tr>
+                            <td>{{$cartItem->name}}</td>
+                            <td>$ {{number_format($cartItem->price,0,',','.')}}</td>
+                            <td>{{$cartItem->description}}</td>
+                            <td width="50px">
+                                {!! Form::open(['route' => ['cart.update',$cartItem->rowId], 'method' => 'PUT']) !!}
+                                <input name="qty" type="text" value="{{$cartItem->qty}}">
 
-            <tr>
-                <td></td>
-                <td>
-                    Tax: ${{Cart::tax()}} <br>
-                    Sub Total: $ {{Cart::subtotal()}} <br>
-                    Grand Total: $ {{Cart::total()}}
-                </td>
-                <td>Items: {{Cart::count()}}
 
-                </td>
-                <td></td>
-                <td></td>
+                            </td>
 
-            </tr>
-            </tbody>
-        </table>
+                            <td>
+                                <input style="float: left"  type="submit" class="button success small" value="Actualizar">
+                                {!! Form::close() !!}
 
-        <a href="{{route('checkout.shipping')}}" class="button">Checkout</a>
+                                <form action="{{route('cart.destroy',$cartItem->rowId)}}"  method="POST">
+                                   {{csrf_field()}}
+                                   {{method_field('DELETE')}}
+                                   <input class="button small alert" type="submit" value="Eliminar">
+                                 </form>
+                            </td>
+                        </tr>
+                @endforeach
+
+                <tr>
+                    <td></td>
+                    <td>
+                        Total: $ {{Cart::total()}}
+                    </td>
+                    <td>Objetos: {{Cart::count()}}
+
+                    </td>
+                    <td></td>
+                    <td></td>
+
+                </tr>
+                </tbody>
+            </table>
+            <a href="{{route('checkout.shipping')}}" class="button">Checkout</a>
+            <a href="/shirts" class="button">Catálogo</a>
+        @else
+            <h2>Revisa nuestro catálogo y rellena el carro!</h2>
+            <a href="/shirts" class="button">Catálogo</a>
+        @endif
     </div>
-
-
-
 @endsection

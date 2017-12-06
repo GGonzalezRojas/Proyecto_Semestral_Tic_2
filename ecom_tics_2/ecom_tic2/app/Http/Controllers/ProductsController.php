@@ -45,6 +45,7 @@ class ProductsController extends Controller
             'name'=>'required',
             'size'=>'required',
             'price'=>'required',
+            'cantidad'=>'required',
             'image'=>'image|mimes:png,jpg,jpeg|max:10000'
         ]);
 //        image upload
@@ -83,6 +84,12 @@ class ProductsController extends Controller
         return view('admin.product.edit',compact(['product','categories']));
     }
 
+    /*public function actualizar_cantidad($id)
+    {
+
+        $product=Product::find($id);
+    }*/
+
     /**
      * Update the specified resource in storage.
      *
@@ -100,6 +107,7 @@ class ProductsController extends Controller
             'name'=>'required',
             'size'=>'required',
             'price'=>'required',
+            'cantidad'=>'required',
             'image'=>'image|mimes:png,jpg,jpeg|max:10000'
         ]);
 

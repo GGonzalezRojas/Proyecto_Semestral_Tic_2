@@ -4,38 +4,38 @@
         <ul class="nav">
             <!-- Main menu -->
             <li class="current"><a href="{{route('admin.index')}}"><i class="glyphicon glyphicon-home"></i>
-                    Dashboard</a></li>
+                    Menú</a></li>
             <li class="submenu">
                 <a href="#">
-                    <i class="glyphicon glyphicon-list"></i> Products
+                    <i class="glyphicon glyphicon-list"></i> Productos
                     <span class="caret pull-right"></span>
                 </a>
                 <!-- Sub menu -->
                 <ul>
-                    <li><a href="{{route('product.index')}}">Products</a></li>
-                    <li><a href="{{route('product.create')}}">Add Product</a></li>
+                    <li><a href="{{route('product.index')}}">Inventario</a></li>
+                    <li><a href="{{route('product.create')}}">Agregar producto</a></li>
                 </ul>
             </li>
             <li class="submenu">
                 <a href="#">
-                    <i class="glyphicon glyphicon-list"></i> Category
+                    <i class="glyphicon glyphicon-list"></i> Categoria producto
                     <span class="caret pull-right"></span>
                 </a>
                 <!-- Sub menu -->
                 <ul>
-                    <li><a href="{{route('category.index')}}">Add Category</a></li>
+                    <li><a href="{{route('category.index')}}">Agregar categoria</a></li>
                 </ul>
             </li>
             <li class="submenu">
                 <a href="#">
-                    <i class="glyphicon glyphicon-list"></i> Orders
+                    <i class="glyphicon glyphicon-list"></i> Ordenes de compra 
                     <span class="caret pull-right"></span>
                 </a>
                 <!-- Sub menu -->
                 <ul>
-                    <li><a href="{{url('admin/orders/pending')}}">Pending Orders</a></li>
-                    <li><a href="{{url('admin/orders/delivered')}}">Delivered Orders</a></li>
-                    <li><a href="{{url('admin/orders')}}">All Orders</a></li>
+                    <li><a href="{{url('admin/orders/pending')}}">Ordenes pendientes</a></li>
+                    <li><a href="{{url('admin/orders/delivered')}}">Ordenes entregadas</a></li>
+                    <li><a href="{{url('admin/orders')}}">Todas las ordenes</a></li>
                 </ul>
             </li>
         </ul>

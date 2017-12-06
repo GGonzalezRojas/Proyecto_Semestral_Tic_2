@@ -2,37 +2,43 @@
 
 @section('content')
 
-    <h3>Add Product</h3>
+    <h3>Modificar el producto</h3>
 
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             {!! Form::model($product,['route' => ['product.update',$product->id], 'method' => 'PUT', 'files' => true]) !!}
             <div class="form-group">
-                {{ Form::label('name', 'Name') }}
+                {{ Form::label('name', 'Nombre') }}
                 {{ Form::text('name', null, array('class' => 'form-control','required'=>'','minlength'=>'5')) }}
             </div>
 
             <div class="form-group">
-                {{ Form::label('description', 'Description') }}
+                {{ Form::label('description', 'Descripción') }}
                 {{ Form::text('description', null, array('class' => 'form-control')) }}
             </div>
             <div class="form-group">
-                {{ Form::label('price', 'Price') }}
+                {{ Form::label('price', 'Precio') }}
                 {{ Form::text('price', null, array('class' => 'form-control')) }}
             </div>
 
+
             <div class="form-group">
-                {{ Form::label('size', 'Size') }}
+                {{ Form::label('cantidad', 'Cantidad') }}
+                {{ Form::text('cantidad', null, array('class' => 'form-control')) }}
+            </div>
+
+            <div class="form-group">
+                {{ Form::label('size', 'Tamaño') }}
                 {{ Form::select('size', [ 'small' => 'Small', 'medium' => 'Medium','large'=>'Large'], null, ['class' => 'form-control']) }}
             </div>
 
             <div class="form-group">
-                {{ Form::label('category_id', 'Categories') }}
+                {{ Form::label('category_id', 'Categoría') }}
                 {{ Form::select('category_id', $categories, null, ['class' => 'form-control','placeholder'=>'Select Category']) }}
             </div>
 
             <div class="form-group">
-                {{ Form::label('image', 'Image') }}
+                {{ Form::label('image', 'Imágen') }}
                 {{ Form::file('image',array('class' => 'form-control')) }}
             </div>
 
