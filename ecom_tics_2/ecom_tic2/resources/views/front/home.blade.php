@@ -31,7 +31,7 @@
                 <div class="item-wrapper">
                     <div class="img-wrapper">
                         <a href="{{route('cart.addItem',$shirt->id)}}" class="button expanded add-to-cart">
-                            Add to Cart
+                            Agregar a carrito
                         </a>
                         <a href="#">
                             <img src="{{url('images',$shirt->image)}}"/>
