@@ -20,8 +20,9 @@ class FrontController extends Controller
         return view('front.shirts',compact('shirts'));
     }
 
-    public function shirt()
+    public function shirt($id)
     {
-        return view('front.shirt');
+        $shirt = Product::find($id);
+        return view('front.shirt')->with('shirt',$shirt);
     }
 }
