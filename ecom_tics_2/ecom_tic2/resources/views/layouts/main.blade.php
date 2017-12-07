@@ -35,24 +35,38 @@
                 </a>
             </li>
             <li>
-                <a href="{{route('cart.index')}}">
-                    <i class="fa fa-shopping-cart fa-2x" aria-hidden="true">
-                    </i>
-                    Carrito
-                    <span class="alert badge">
-                               {{Cart::count()}}
-                            </span>
-                </a>
+               @if (Auth::check())
+                @if (Auth::user()->admin != 1)
+                    <li>
+                        <a href="{{route('cart.index')}}">
+                            <i class="fa fa-shopping-cart fa-2x" aria-hidden="true">
+                            </i>
+                            Carro
+                            <span class="alert badge">
+                                       {{Cart::count()}}
+                                    </span>
+                        </a>
+                    </li>
+                @endif
+            @endif
             </li>
             <li>
                 @if (Auth::check())
-                    <a href="/admin">
-                    <i class="fa fa-user fa-2x" aria-hidden="true"></i>
-                        {{Auth::user()->name}}
-                    </a>  
+                    @if (Auth::user()->admin == 1)
+                        <a href="/admin">
+                        <i class="fa fa-user-circle-o fa-2x" aria-hidden="true"></i>
+                            {{Auth::user()->name}}
+                        </a>
+                    @else
+                         <a href="/logout">
+                         <i class="fa fa-user fa-2x" aria-hidden="true"></i>
+                            Cerrar Sessión
+                        </a>
+                    @endif
                 @else
                     <a href="/login">
-                        Iniciar Sesión
+                    <i class="fa fa-users fa-2x" aria-hidden="true"></i>
+                        Iniciar Sessión
                     </a>
                 @endif
             </li>

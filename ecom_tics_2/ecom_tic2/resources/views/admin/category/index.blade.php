@@ -9,16 +9,16 @@
             @forelse($categories as $category)
                 <li class="active">
                     <a href="{{route('category.show',$category->id)}}">{{$category->name}}</a>
-{{-- delete button --}}
+                            {{-- delete button --}}
                     <form action="{{route('category.destroy',$category->id)}}"  method="POST">
                         {{csrf_field()}}
                         {{method_field('DELETE')}}
-                        <input class="btn btn-sm btn-danger" type="submit" value="Delete">
+                        <input class="btn btn-sm btn-danger" type="submit" value="Eliminar">
                      </form>
 
                 </li>
             @empty
-                <li>No Items</li>
+                <li>No existen elementos</li>
             @endforelse
                 @endif
 
@@ -26,26 +26,26 @@
 
 
 
-    <a class="btn btn-primary pull-right navbar-right" data-toggle="modal" href="#category">Add Category</a>
+    <a class="btn btn-primary pull-right navbar-right" data-toggle="modal" href="#category">Agregar categoría</a>
     <div class="modal fade" id="category">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title">Add New</h4>
+                    <h4 class="modal-title">Agregar nuevo</h4>
                 </div>
                 {!! Form::open(['route' => 'category.store', 'method' => 'post']) !!}
                 <div class="modal-body">
                     <div class="form-group">
-                        {{ Form::label('name', 'Title') }}
+                        {{ Form::label('name', 'Título') }}
                         {{ Form::text('name', null, array('class' => 'form-control')) }}
                     </div>
 
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn btn-primary">Guardar cambios</button>
                 </div>
                 {!! Form::close() !!}
             </div><!-- /.modal-content -->
@@ -56,19 +56,19 @@
     {{--products--}}
     @if(isset($products))
 
-    <h3>Products</h3>
+    <h3>Productos</h3>
 
     <table class="table table-hover">
     	<thead>
     		<tr>
-    			<th>Products</th>
+    			<th>Productos</th>
     		</tr>
     	</thead>
     	<tbody>
 @forelse($products as $product)
     <tr><td>{{$product->name}}</td></tr>
     	@empty
-        <tr><td>no data</td></tr>
+        <tr><td>No existen elementos</td></tr>
         @endforelse
 
         </tbody>

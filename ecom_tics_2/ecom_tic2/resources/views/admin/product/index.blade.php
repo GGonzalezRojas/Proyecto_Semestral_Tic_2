@@ -12,6 +12,7 @@
        <div class="col-md-8">
         <h4>Nombre de Producto: {{$product->name}}</h4>
         <h4>Categoria: {{count($product->category)?$product->category->name:"N/A"}}</h4>
+        <h4>Cantidad: {{count($product->cantidad)?$product->cantidad:"N/A"}}</h4>
         @foreach ($product->images as $image)
           
           <img src="{{$image->image_path}}" style="max-width: 200px">
@@ -38,8 +39,10 @@
     </li>
 
         @empty
-
-        <h3>No hay productos</h3>
+        <center>
+            <h3>No existen productos en inventario</h3>
+        </center> 
+        
 
     @endforelse
 </ul>

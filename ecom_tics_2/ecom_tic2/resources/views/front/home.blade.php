@@ -30,9 +30,14 @@
             <div class="small-3 medium-3 large-3 columns">
                 <div class="item-wrapper">
                     <div class="img-wrapper">
-                        <a href="{{route('cart.addItem',$shirt->id)}}" class="button expanded add-to-cart">
-                            Agregar a carro
-                        </a>
+
+                    @if (Auth::check())    
+                            @if (Auth::user()->admin != 1)
+                                <a href="{{route('cart.addItem',$shirt->id)}}" class="button expanded add-to-cart">
+                                    Agregar a carro
+                                </a>
+                             @endif
+                     @endif   
                         <a href="#">
                             <img src="{{url('images',$shirt->image)}}"/>
                         </a>
@@ -58,7 +63,7 @@
             </div>
             @endforeach
         @empty
-            <h3>No shirts</h3>
+            <h3>No existen productos en inventario</h3>
         @endforelse
     </div>
 

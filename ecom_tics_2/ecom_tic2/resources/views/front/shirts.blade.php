@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title','Shirts')
+@section('title','Catálogo')
 @section('content')
     <!-- products listing -->
     <!-- Latest SHirts -->
@@ -9,9 +9,14 @@
             <div class="small-3 medium-3 large-3 columns">
                 <div class="item-wrapper">
                     <div class="img-wrapper">
-                        <a href="{{url('/cart/add-item/'.$shirt->id)}}" class="button expanded add-to-cart">
-                            Agregar al Carro
-                        </a>
+
+                    @if (Auth::check())    
+                            @if (Auth::user()->admin != 1)
+                                <a href="{{url('/cart/add-item/'.$shirt->id)}}" class="button expanded add-to-cart">
+                                    Agregar al Carro
+                                </a>
+                            @endif
+                    @endif    
                         <a href="#">
                             <img src="{{url('images',$shirt->image)}}"/>
                         </a>
@@ -22,12 +27,12 @@
                         </h3>
                     </a>
                     <h5>
-                        ${{$shirt->price}}
+                        Precio: ${{$shirt->price}}
 
                     </h5>
 
                     <h5>
-                        ${{$shirt->cantidad}}
+                        Disponibles: {{$shirt->cantidad}}
 
                     </h5>
                     <p>

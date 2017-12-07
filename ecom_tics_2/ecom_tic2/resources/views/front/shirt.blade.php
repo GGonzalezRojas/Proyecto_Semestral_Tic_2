@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title','shirt')
+@section('title','Producto')
 
 @section('content')
 
@@ -19,12 +19,13 @@
         <div class="small-6 columns">
             <div class="item-wrapper">
                 <h3 class="subheader">
-                    <span class="price-tag">${{$shirt->price}}</span> {{$shirt->name}}</span> {{$shirt->cantidad}}
+                    <span class="price-tag">${{$shirt->price}}</span> {{$shirt->name}}</span> </br>
+                    Quedan {{$shirt->cantidad}}
                 </h3>
                 <div class="row">
                     <div class="large-12 columns">
                         <label>
-                            Select Size
+                            Selecciona tamaño
                             <select>
                                 <option value="small">
                                     Pequeña
@@ -41,7 +42,7 @@
 
                             </select>
                         </label>
-                        <a href="#" class="button  expanded">Agregar al Carro</a>
+                        <a href="{{url('/cart/add-item/'.$shirt->id)}}" class="button  expanded">Agregar al Carro</a>
                     </div>
                 </div>
                 <!-- products listing -->
