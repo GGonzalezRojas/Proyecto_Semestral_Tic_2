@@ -30,12 +30,12 @@
 
             <div class="form-group">
                 {{ Form::label('size', 'Tamaño') }}
-                {{ Form::select('size', [ 'small' => 'Small', 'medium' => 'Medium','large'=>'Large'], null, ['class' => 'form-control']) }}
+                {{ Form::select('size', [ 'small' => 'Pequeño', 'medium' => 'Mediano','large'=>'Grande'], null, ['class' => 'form-control']) }}
             </div>
 
             <div class="form-group">
                 {{ Form::label('category_id', 'Categoría') }}
-                {{ Form::select('category_id', $categories, null, ['class' => 'form-control','placeholder'=>'Select Category']) }}
+                {{ Form::select('category_id', $categories, null, ['class' => 'form-control','placeholder'=>'Seleccionar categoria']) }}
             </div>
 
             <div class="form-group">

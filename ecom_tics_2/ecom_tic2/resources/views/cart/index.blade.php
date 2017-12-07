@@ -11,7 +11,7 @@
                 <tr>
                     <th>Nombre</th>
                     <th>Precio</th>
-                    <th>Imagen</th>
+                    <th>Descripción</th>
                     <th>Cantidad</th>
                     <th>Opciones</th>
                 </tr>
@@ -22,7 +22,7 @@
                         <tr>
                             <td>{{$cartItem->name}}</td>
                             <td>$ {{number_format($cartItem->price,0,',','.')}}</td>
-                            <td> <img src="{{url('images',$cartItem->image)}}"/></td>
+                            <td>{{$cartItem->options[0]}}</td>
                             <td width="50px">
                                 {!! Form::open(['route' => ['cart.update',$cartItem->rowId], 'method' => 'PUT']) !!}
                                 <input name="qty" type="text" value="{{$cartItem->qty}}">
