@@ -9,14 +9,14 @@
 
             <div class="form-row">
                 <label>
-                    <span>Card Number</span>
+                    <span>Numero de tarjeta</span>
                     <input type="text" size="20" data-stripe="number">
                 </label>
             </div>
 
             <div class="form-row">
                 <label>
-                    <span>Expiration (MM/YY)</span>
+                    <span>Vencimiento (MM/YY)</span>
                     <input type="text" size="2" data-stripe="exp_month">
                     <span> / </span>
                     <input type="text" size="2" data-stripe="exp_year">
@@ -31,7 +31,7 @@
             </div>
 
 
-            <input type="submit" class="submit button success" value="Submit Payment">
+            <input type="submit" class="submit button success" value="Realizar pago">
         </form>
         </div>
     </div>

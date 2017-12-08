@@ -6,6 +6,7 @@ use App\Order;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class CheckoutController extends Controller
 {
@@ -40,7 +41,7 @@ class CheckoutController extends Controller
 // Create a charge: this will charge the user's card
         try {
             $charge = \Stripe\Charge::create(array(
-                "amount" => Cart::total()*100, // Amount in cents
+                "amount" => Cart::total()*1000, // Amount in cents
                 "currency" => "CLP",
                 "source" => $token,
                 "description" => "Example charge"
@@ -52,8 +53,10 @@ class CheckoutController extends Controller
        Order::createOrder();
 
         //redirect user to some page
-        return "Order completed";
+        session()->flash('message', 'Transacción exitosa');
 
+        return view('home');
+        
     }
 
 
